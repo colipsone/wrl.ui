@@ -2,12 +2,12 @@
     "use strict";
 
     angular
-        .module("wrl.apartments")
-        .controller("apartmentsController", apartmentsController);
+        .module("wrlUi.apartments")
+        .controller("ApartmentsController", ApartmentsController);
 
-    apartmentsController.$inject = ["apartmentsService", "settings", "$uibModal"];
+    ApartmentsController.$inject = ["apartmentsService", "settings", "$uibModal"];
 
-    function apartmentsController(apartmentsService, settings, $uibModal) {
+    function ApartmentsController(apartmentsService, settings, $uibModal) {
         var vm = this;
 
         vm.lang = settings.langLocale;
@@ -46,9 +46,9 @@
             });
 
             modalInstance.result.then(function() {
-                
+
             }, function() {
-                
+
             });
         }
 

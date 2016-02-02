@@ -2,12 +2,13 @@
     "use strict";
 
     angular
-        .module("wrl.security")
+        .module("wrlUi.security")
         .factory("authService", authService);
 
-    authService.$inject = ["$resource", "settings", "localStorageService"];
+    //authService.$inject = ["$resource", "settings", "localStorageService"];
 
-    function authService($resource, settings, localStorageService) {
+    /** @ngInject */
+    function authService($resource, settings) {
         var serviceFactory = $resource(settings.baseApiUrl, {}, {
             register: {
                 method: "POST",
@@ -23,8 +24,8 @@
         });
 
         var authentication = {
-            isAuth: false,
-            userName: ""
+            isAuthenticated: true,
+            userName: "ToDo"
         };
 
         return {
@@ -38,44 +39,44 @@
         //#region Methods: Private
 
         function logOut() {
-            localStorageService.remove("authorizationData");
+            /*localStorageService.remove("authorizationData");
 
-            authentication.isAuth = false;
-            authentication.userName = "";
+            authentication.isAuthenticated = false;
+            authentication.userName = "";*/
 
         };
 
         function saveRegistration(registration) {
 
-            logOut();
+            /*logOut();
 
             return serviceFactory.register(registration).$promise.then(function (response) {
                 return response;
-            });
+            });*/
         };
 
         function login(loginData) {
 
-            var data = "grant_type=password&username=" + loginData.userName + "&password=" + loginData.password;
+            /*var data = "grant_type=password&username=" + loginData.userName + "&password=" + loginData.password;
 
             return serviceFactory.login(data).$promise.then(function (response) {
 
                 localStorageService.set("authorizationData", { token: response.access_token, userName: loginData.userName });
 
-                authentication.isAuth = true;
+                authentication.isAuthenticated = true;
                 authentication.userName = loginData.userName;
 
             }, function (err) {
                 logOut();
-            });
+            });*/
         };
 
         function fillAuthData() {
-            var authData = localStorageService.get("authorizationData");
+            /*var authData = localStorageService.get("authorizationData");
             if (authData) {
-                authentication.isAuth = true;
+                authentication.isAuthenticated = true;
                 authentication.userName = authData.userName;
-            }
+            }*/
         }
 
         //#endregion

@@ -1,7 +1,8 @@
 ﻿(function () {
     "use strict";
 
-    function signupController(authService, $timeout, $state) {
+    /** @ngInject */
+    function SignupController(authService, $timeout, $state) {
         var vm = this;
 
         vm.savedSuccessfully = false;
@@ -42,8 +43,8 @@
     }
 
     angular
-        .module("wrl.security")
-        .controller("signupController", signupController);
+        .module("wrlUi.security")
+        .controller("SignupController", SignupController);
 
-    signupController.$inject = ["authService", "$timeout", "$state"];
+    //SignupController.$inject = ["authService", "$timeout", "$state"];
 })();

@@ -1,7 +1,8 @@
 ﻿(function () {
     "use strict";
 
-    function loginController(authService, $timeout, $state) {
+    /** @ngInject */
+    function LoginController(authService, $timeout, $state) {
         var vm = this;
 
         vm.message = "";
@@ -14,9 +15,7 @@
         vm.login = function () {
 
             authService.login(vm.loginData).then(function (response) {
-
                 $state.go("apartments");
-
             },
              function (err) {
                  vm.message = err.error_description;
@@ -25,8 +24,8 @@
     }
 
     angular
-        .module("wrl.security")
-        .controller("loginController", loginController);
+        .module("wrlUi.security")
+        .controller("LoginController", LoginController);
 
-    loginController.$inject = ["authService", "$timeout", "$state"];
+    //LoginController.$inject = ["authService", "$timeout", "$state"];
 })();

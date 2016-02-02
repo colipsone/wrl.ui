@@ -3,16 +3,13 @@
 
   angular
     .module('wrlUi')
-    .directive('wrlNavbar', acmeNavbar);
+    .directive('wrlNavbar', wrlNavbar);
 
-  /** @ngInject */
-  function acmeNavbar() {
+  function wrlNavbar() {
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
       scope: {
-          isAuthenticated: '=',
-          userName: '='
       },
       controller: NavbarController,
       controllerAs: 'vm',
@@ -22,8 +19,10 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController() {
-      
+    function NavbarController(authService) {
+      var vm = this;
+      vm.isAuthenticated = authService.authentication.isAuthenticated;
+      vm.userName = authService.authentication.userName
     }
   }
 

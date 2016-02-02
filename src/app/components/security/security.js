@@ -1,6 +1,6 @@
 ﻿(function () {
     "use strict";
 
-    angular.module("wrl.security", ["ngResource", "LocalStorageModule"]);
+    angular.module("wrlUi.security", ["ngResource"]);
 
 })();

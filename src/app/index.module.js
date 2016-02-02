@@ -1,7 +1,6 @@
-(function() {
+(function () {
   'use strict';
 
   angular
-    .module('wrlUi', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngResource', 'ui.router', 'ui.bootstrap', 'toastr']);
-
+    .module('wrlUi', ['ui.router', 'ui.bootstrap', 'wrlUi.security', 'wrlUi.apartments', 'toastr']);
 })();

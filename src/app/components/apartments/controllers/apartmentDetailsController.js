@@ -1,11 +1,11 @@
 ﻿(function() {
-    var apartmentDetailsController = function() {
+    var ApartmentDetailsController = function() {
         var vm = this;
 
         vm.apartment = {};
     };
 
-    apartmentDetailsController.$inject = ["wrl.common"];
+    //ApartmentDetailsController.$inject = ["wrlUi.common"];
 
-    var module = angular("wrl.apartments").controller(apartmentDetailsController);
+    angular.module("wrlUi.apartments").controller(ApartmentDetailsController);
 })();

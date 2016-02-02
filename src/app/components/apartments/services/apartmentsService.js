@@ -2,11 +2,11 @@
     "use strict";
 
     angular
-        .module("wrl.apartments")
+        .module("wrlUi.apartments")
         .factory("apartmentsService", apartmentsService);
 
-    apartmentsService.$inject = ["$resource", "settings"];
-
+    //apartmentsService.$inject = ["$resource", "settings"];
+    /** @ngInject */
     function apartmentsService($resource, settings) {
         var apartmentApiUrl = settings.baseApiUrl + "api/apartment";
         var serviceFactory = $resource(apartmentApiUrl, {}, {
