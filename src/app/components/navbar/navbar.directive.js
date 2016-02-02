@@ -3,15 +3,16 @@
 
   angular
     .module('webrealtylife')
-    .directive('acmeNavbar', acmeNavbar);
+    .directive('wrlNavbar', wrlNavbar);
 
   /** @ngInject */
-  function acmeNavbar() {
+  function wrlNavbar() {
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
       scope: {
-          creationDate: '='
+          isAuthenticated: true,
+          userName: 'Nick'
       },
       controller: NavbarController,
       controllerAs: 'vm',
@@ -21,11 +22,8 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController(moment) {
-      var vm = this;
-
-      // "vm.creation" is avaible by directive option "bindToController: true"
-      vm.relativeDate = moment(vm.creationDate).fromNow();
+    function NavbarController() {
+      //var vm = this;
     }
   }
 

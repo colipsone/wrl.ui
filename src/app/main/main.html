@@ -1,31 +1,40 @@
 <div class="container">
 
   <div>
-    <acme-navbar creation-date="main.creationDate"></acme-navbar>
+    <wrl-navbar></wrl-navbar>
   </div>
 
-  <div class="jumbotron text-center">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">
-      <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-      Always a pleasure scaffolding your apps.
-    </p>
-    <p class="animated infinite" ng-class="main.classAnimation">
-      <button type="button" class="btn btn-lg btn-success" ng-click="main.showToastr()">Splendid Toastr</button>
-    </p>
-    <p>
-      With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']"></acme-malarkey>
-    </p>
+  <div class="row jumbotron text-center">
+    <h1>Web Realty Life</h1>
   </div>
-
   <div class="row">
-    <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
-      <div class="thumbnail">
-        <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
-        <div class="caption">
-          <h3>{{ awesomeThing.title }}</h3>
-          <p>{{ awesomeThing.description }}</p>
-          <p><a ng-href="{{awesomeThing.url}}">{{ awesomeThing.url }}</a></p>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Вход</h3>
+          </div>
+          <div class="panel-body">
+            Чтобы начать пользоваться системой необходимо войти в систему под своей учетной записью. Если у Вас еще нет учетной записи, воспользуйтесь инструкцией в блоке Регистрация.
+            Для входа в систему нажмите в правом верхнем углу ссылку с названием "Вход", или нажмите кнопку "Вход" ниже в этом блоке.
+            <div>
+              <button type="button" class="btn btn-primary full-container-width">Вход</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <h3 class="panel-title">Регистрация</h3>
+          </div>
+          <div class="panel-body">
+            Для того чтобы воспользоваться приватной частью системы небоходимо пройти регистрацию. Для этого Вам необходимо в правом верхнем углу нажать
+            на ссылку с названием "Регистрация", или нажать на кнопку "Регистрация" ниже в этом блоке.
+            <div>
+              <button type="button" class="btn btn-success full-container-width">Регистрация</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
