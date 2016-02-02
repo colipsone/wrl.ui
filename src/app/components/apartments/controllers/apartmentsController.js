@@ -5,8 +5,7 @@
         .module("wrlUi.apartments")
         .controller("ApartmentsController", ApartmentsController);
 
-    ApartmentsController.$inject = ["apartmentsService", "settings", "$uibModal"];
-
+    /** @ngInject */
     function ApartmentsController(apartmentsService, settings, $uibModal) {
         var vm = this;
 
@@ -38,8 +37,8 @@
         vm.editApartment = function(apartment) {
             var modalInstance = $uibModal.open({
                 animation: true,
-                templateUrl: "app/apartments/templates/apartmentDetails.html",
-                controller: "apartmentDetailsController",
+                templateUrl: "app/components/apartments/templates/apartmentDetails.html",
+                controller: "ApartmentDetailsController",
                 resolve: {
                     apartment: apartment
                 }

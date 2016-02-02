@@ -5,7 +5,6 @@
         .module("wrlUi.apartments")
         .factory("apartmentsService", apartmentsService);
 
-    //apartmentsService.$inject = ["$resource", "settings"];
     /** @ngInject */
     function apartmentsService($resource, settings) {
         var apartmentApiUrl = settings.baseApiUrl + "api/apartment";
@@ -17,7 +16,10 @@
         };
 
         function getApartments() {
-            return serviceFactory.query().$promise;
+            //return serviceFactory.query().$promise;
+            return [{
+
+            }];
         }
     }
 })();

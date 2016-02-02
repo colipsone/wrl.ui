@@ -16,20 +16,20 @@
       }).
       state("login", {
         url: "/login",
-        templateUrl: "app/security/templates/login.html",
-        controller: "loginController",
+        templateUrl: "app/components/security/templates/login.html",
+        controller: "LoginController",
         controllerAs: "vm"
       }).
       state("signup", {
         url: "/signup",
-        templateUrl: "app/security/templates/signup.html",
-        controller: "signupController",
+        templateUrl: "app/components/security/templates/signup.html",
+        controller: "SignupController",
         controllerAs: "vm"
       }).
       state("apartments", {
         url: "/apartments",
-        templateUrl: "app/apartments/templates/apartmentsList.html",
-        controller: "apartmentsController",
+        templateUrl: "app/components/apartments/templates/apartmentsList.html",
+        controller: "ApartmentsController",
         controllerAs: "vm"
       });
 
