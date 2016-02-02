@@ -12,7 +12,7 @@
     var vm;
     var el;
 
-    beforeEach(module('webrealtylife'));
+    beforeEach(module('wrlUi'));
     beforeEach(inject(function($compile, $rootScope, githubContributor, $q, _$log_) {
       $log = _$log_;
 

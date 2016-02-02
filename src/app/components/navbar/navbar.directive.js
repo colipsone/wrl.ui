@@ -2,17 +2,17 @@
   'use strict';
 
   angular
-    .module('webrealtylife')
-    .directive('wrlNavbar', wrlNavbar);
+    .module('wrlUi')
+    .directive('wrlNavbar', acmeNavbar);
 
   /** @ngInject */
-  function wrlNavbar() {
+  function acmeNavbar() {
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
       scope: {
-          isAuthenticated: true,
-          userName: 'Nick'
+          isAuthenticated: '=',
+          userName: '='
       },
       controller: NavbarController,
       controllerAs: 'vm',
@@ -23,7 +23,7 @@
 
     /** @ngInject */
     function NavbarController() {
-      //var vm = this;
+      
     }
   }
 

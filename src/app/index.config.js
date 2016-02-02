@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('webrealtylife')
+    .module('wrlUi')
     .config(config);
 
   /** @ngInject */

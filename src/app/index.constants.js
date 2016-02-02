@@ -3,14 +3,8 @@
   'use strict';
 
   angular
-    .module('webrealtylife')
+    .module('wrlUi')
     .constant('malarkey', malarkey)
-    .constant('moment', moment)
-    .service("settings", function() {
-      return {
-        baseApiUrl: "http://localhost:4897/",
-        langLocale: "ru"
-      };
-  });
+    .constant('moment', moment);
 
 })();

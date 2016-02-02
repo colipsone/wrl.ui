@@ -1,5 +1,5 @@
 {
-  "name": "webrealtylife",
+  "name": "wrlUi",
   "version": "0.0.0",
   "dependencies": {
     "angular-animate": "~1.4.2",
@@ -7,7 +7,6 @@
     "angular-touch": "~1.4.2",
     "angular-sanitize": "~1.4.2",
     "angular-messages": "~1.4.2",
-    "angular-aria": "~1.4.2",
     "jquery": "~2.1.4",
     "angular-resource": "~1.4.2",
     "angular-ui-router": "~0.2.15",
