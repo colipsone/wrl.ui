@@ -1,3 +1,23 @@
-﻿<div>
-    <h1>Apartment Details Page</h1>
+﻿<div id="apartment-edit-form">
+  <div class="modal-header">
+    <h3 class="modal-title">Новая квартира</h3>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="streetName">Название улицы</label>
+        <input ng-model="vm.apartment.streetName" type="text"
+               class="form-control" id="streetName" placeholder="Название улицы">
+      </div>
+      <div class="form-group">
+        <label for="houseNumber">Номер дома</label>
+        <input ng-model="vm.apartment.houseNumber" type="text"
+               class="form-control" id="houseNumber" placeholder="Номер дома">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="vm.save()">Сохранить</button>
+    <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Отмена</button>
+  </div>
 </div>

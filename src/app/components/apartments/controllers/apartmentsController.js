@@ -39,13 +39,14 @@
                 animation: true,
                 templateUrl: "app/components/apartments/templates/apartmentDetails.html",
                 controller: "ApartmentDetailsController",
+                controllerAs: "vm",
                 resolve: {
                     apartment: apartment
                 }
             });
 
-            modalInstance.result.then(function() {
-
+            modalInstance.result.then(function(newApartment) {
+              vm.gridOptions.data.push(newApartment);
             }, function() {
 
             });

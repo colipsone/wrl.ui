@@ -1,9 +1,27 @@
-﻿<div class="menu-trigger" snap-toggle="left">
+﻿<div id="menu-trigger" snap-toggle="left" title="Показать/скрыть Меню">
     <i class="glyphicon glyphicon-menu-hamburger"></i>
 </div>
-<div snap-drawer>
-    <div class="panel"></div>
-</div>
-<div snap-content class="container-fluid" ui-i18n="{{vm.lang}}">
-    <div data-snap-ignore="true" ui-grid="vm.gridOptions" class="myGrid" ui-grid-resize-columns></div>    
-</div>
+<snap-drawer id="side-menu">
+  <div class="panel panel-default">
+    <div class="panel-heading"><h4>Меню</h4></div>
+    <div class="panel-body">
+      <div class="list-group">
+        <button ng-click="vm.editApartment()" class="list-group-item">
+          <span class="glyphicon glyphicon-home"></span> Добавить квартиру
+        </button>
+        <button ng-click="" class="list-group-item">
+          <span class="glyphicon glyphicon-plus"></span> В разработке
+        </button>
+        <button ng-click="" class="list-group-item">
+          <span class="glyphicon glyphicon-plus"></span> В разработке
+        </button>
+        <button ng-click="" class="list-group-item">
+          <span class="glyphicon glyphicon-plus"></span> В разработке
+        </button>
+      </div>
+    </div>
+  </div>
+</snap-drawer>
+<snap-content snap-content class="container-fluid" ui-i18n="{{vm.lang}}">
+    <div snap-ignore="true" ui-grid="vm.gridOptions" class="myGrid" ui-grid-resize-columns></div>
+</snap-content>

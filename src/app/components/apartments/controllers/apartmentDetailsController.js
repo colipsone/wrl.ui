@@ -1,11 +1,29 @@
 ﻿(function() {
-    var ApartmentDetailsController = function() {
+
+  /** @ngInject */
+  var ApartmentDetailsController = function(apartmentsService, $uibModalInstance) {
         var vm = this;
 
-        vm.apartment = {};
+        vm.save = function(){
+          apartmentsService.createApartment(vm.apartment).then(function(response){
+            $uibModalInstance.close(response);
+          }, function(error){
+
+          });
+        }
+
+        vm.cancel = function(){
+          $uibModalInstance.dismiss('cancel');
+        }
+
+        vm.newApartment = function(){
+          return {
+            number: "testNumber"
+          }
+        }
+
+        vm.apartment = vm.newApartment();
     };
 
-    //ApartmentDetailsController.$inject = ["wrlUi.common"];
-
-    angular.module("wrlUi.apartments").controller(ApartmentDetailsController);
+    angular.module("wrlUi.apartments").controller("ApartmentDetailsController", ApartmentDetailsController);
 })();
