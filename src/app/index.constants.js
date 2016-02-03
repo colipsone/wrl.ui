@@ -8,7 +8,7 @@
     .constant('moment', moment)
     .service("settings", function() {
       return {
-        baseApiUrl: "http://localhost:4897/",
+        baseApiUrl: "http://localhost:3001/api/",
         langLocale: "ru"
       };
   });
