@@ -6,7 +6,7 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, toastrConfig) {
+  function config($logProvider, toastrConfig, LoopBackResourceProvider, localStorageServiceProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
@@ -16,6 +16,13 @@
     toastrConfig.positionClass = 'toast-top-right';
     toastrConfig.preventDuplicates = true;
     toastrConfig.progressBar = true;
+
+    // Set base api Url
+    LoopBackResourceProvider.setUrlBase('http://localhost:3001/api');
+
+    // Config local storage provider
+    localStorageServiceProvider
+      .setPrefix('wrl');
   }
 
 })();

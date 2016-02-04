@@ -6,22 +6,18 @@
         .factory("apartmentsService", apartmentsService);
 
     /** @ngInject */
-    function apartmentsService($resource, settings) {
-        var apartmentApiUrl = settings.baseApiUrl + "apartments";
-        var serviceFactory = $resource(apartmentApiUrl, {}, {
-        });
-
+    function apartmentsService(Apartment) {
         return {
             getApartments: getApartments,
             createApartment: createApartment
         };
 
         function getApartments() {
-            return serviceFactory.query().$promise;
+            return Apartment.query().$promise;
         }
 
         function createApartment(apartment) {
-            return serviceFactory.save(apartment).$promise;
+            return Apartment.save(apartment).$promise;
         }
     }
 })();

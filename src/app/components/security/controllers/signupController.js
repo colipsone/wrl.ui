@@ -9,29 +9,19 @@
         vm.message = "";
 
         vm.registration = {
-            userName: "",
+            email: "",
             password: "",
             confirmPassword: ""
         };
 
         vm.signUp = function () {
-
-            authService.saveRegistration(vm.registration).then(function (response) {
-
+            authService.signUp(vm.registration.email, vm.registration.password).then(function (response) {
                 vm.savedSuccessfully = true;
                 vm.message = "Пользователь успешно зарегистрирован, вы будете направлены на страницу логина через 2 секунды.";
                 startTimer();
-
             },
-            function (response) {
-                 var errors = [];
-                 for (var key in response.data.modelState) {
-                     for (var i = 0; i < response.data.modelState[key].length; i++) {
-                         errors.push(response.data.modelState[key][i]);
-                     }
-                 }
-                 vm.message = "Пользователь не зарегистрирован из-за: " + errors.join(" ");
-             });
+            function (error) {
+            });
         };
 
         function startTimer() {
@@ -45,6 +35,4 @@
     angular
         .module("wrlUi.security")
         .controller("SignupController", SignupController);
-
-    //SignupController.$inject = ["authService", "$timeout", "$state"];
 })();
