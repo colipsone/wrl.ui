@@ -11,6 +11,10 @@
 
         vm.lang = settings.langLocale;
 
+        vm.searchBy = {
+          streetName: ''
+        };
+
         vm.gridOptions = {
             columnDefs: [
                 {
@@ -50,6 +54,12 @@
             }, function() {
 
             });
+        }
+
+        vm.findApartments = function(){
+          apartmentsService.findApartments(vm.searchBy).then(function (apartments) {
+            vm.gridOptions.data = apartments;
+          });
         }
 
         // #endregion

@@ -1,37 +1,29 @@
 ﻿(function () {
-    "use strict";
+  "use strict";
 
-    angular
-        .module("wrlUi.security")
-        .factory("authInterceptionService", authInterceptionService);
+  angular
+    .module("wrlUi.security")
+    .factory("authInterceptionService", authInterceptionService);
 
-    //authInterceptionService.$inject = ["$q", "$location", "localStorageService"];
+  /** @ngInject */
+  function authInterceptionService($q, $location, toastr) {
+    var service = {
+      responseError: responseError
+    };
 
-    /** @ngInject */
-    function authInterceptionService($q, $location) {
-        var service = {
-            request: request,
-            responseError: responseError
-        };
+    return service;
 
-        return service;
-
-        function request(config) {
-            /*config.headers = config.headers || {};
-
-            var authData = localStorageService.get("authorizationData");
-            if (authData) {
-                config.headers.Authorization = "Bearer " + authData.token;
-            }
-
-            return config;*/
-        }
-
-        function responseError(rejection) {
-           /* if (rejection.status === 401) {
-                $location.path("/login");
-            }
-            return $q.reject(rejection);*/
-        }
+    function responseError(rejection) {
+      if (rejection.status === 401 && rejection.data.error.code == 'AUTHORIZATION_REQUIRED') {
+        toastr.warning('Вы не авторизованы для выполнения этой операции и будете направлены на страницу логина!', {
+          timeOut: 3000,
+          progressBar: true,
+          onHidden: function () {
+            $location.path("/login");
+          }
+        });
+      }
+      return $q.reject(rejection);
     }
+  }
 })();

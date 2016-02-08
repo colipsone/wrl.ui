@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -6,7 +6,7 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, toastrConfig, LoopBackResourceProvider, localStorageServiceProvider) {
+  function config($logProvider, toastrConfig, LoopBackResourceProvider, localStorageServiceProvider, $httpProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
@@ -23,6 +23,9 @@
     // Config local storage provider
     localStorageServiceProvider
       .setPrefix('wrl');
+
+    // Set interceptor for $httpProvider
+    $httpProvider.interceptors.push('authInterceptionService');
   }
 
 })();

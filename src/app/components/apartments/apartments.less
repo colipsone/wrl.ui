@@ -33,3 +33,21 @@
     padding: 0px;
   }
 }
+
+uib-accordion {
+  .panel-heading {
+    height: 35px;
+  }
+  .panel-title {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .panel-group {
+    .panel {
+      + .panel {
+        margin-top: 1px;
+      }
+    }
+  }
+}
